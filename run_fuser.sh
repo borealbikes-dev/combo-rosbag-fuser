@@ -1,6 +1,6 @@
 mkdir -p output
 mkdir -p input
-sudo docker run \
+docker run \
 	--rm \
 	-v ${PWD}:/workspace \
 	-v ${PWD}/output:/output \
