@@ -1,6 +1,5 @@
-# Build docker image called 'galactic-ros-mcap' from Dockerfile.galactic
-
+echo "Building docker image for desktop"
 sudo docker build \
-    -t galactic-ros-mcap:latest \
-    -f Dockerfile.galactic \
-    .
+  -t radvisionen/ros-galactic-mcap-fuser:latest \
+  -f Dockerfile.galactic.desktop \
+  .

@@ -1,4 +1,5 @@
-output/
+output/*
+input/*
 **/rosbag2*/
 
 # Byte-compiled / optimized / DLL files

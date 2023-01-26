@@ -1,0 +1,16 @@
+FROM osrf/ros:galactic-desktop
+
+# mcap plugin to rosbag2; will be default in next version (iron)
+# install latest version of opencv for faster read
+RUN apt-get update && \
+	apt-get install -y --no-install-recommends ros-galactic-rosbag2-storage-mcap unzip python3-pip && \
+	pip3 install --upgrade pip && \
+	pip3 install --no-cache-dir tqdm pyyaml opencv-python numpy
+RUN echo 'source /opt/ros/galactic/setup.bash' >> /root/.bashrc
+
+# set bash as default shell
+SHELL ["/bin/bash", "-c"]
+
+WORKDIR /workspace
+
+CMD ./fuser_from_ros.sh

@@ -5,7 +5,7 @@ Use this repository to convert it into a single rosbag for further analysis and 
 
 ## Quickstart
 
-Install [Docker] for your system.
+Install [Docker](https://docs.docker.com/engine/install/) for your system.
 
 Move/copy the ZIP file obtained from the Boreal Web Interface into `input` directory.
 
@@ -15,9 +15,9 @@ Then run the script:
 ./run_fuser.sh
 ```
 
-The script will write an `.mcap` rosbag to the `output` directory.
-By default, the name will be the same as the zip file.
-Please see the references and example below for more options.
+See `output` directory for a new `.mcap` rosbag.
+
+Use [Foxglove](https://foxglove.dev/) to view its contents.
 
 ## Anatomy of combo_bag
 
@@ -33,23 +33,3 @@ combo_bag_2023-01-25_17-03-15/  # date format: YYYY-MM-DD_HH-MM-SS
     ├── rosbag_0.mcap # rosbag for first minute
     └── rosbag_1.mcap # rosbag for second minute 
 ```
-
-### Post-facto Fusion
-
-```
-./run_docker_for_fuser.sh
-```
-
-In the created shell with ROS2 activated, run:
-
-```
-python3 fuser.py
-```
-
-This will create a new single rosbag file in `output/` directory which contains both the video and the ROS topics.
-
-There are several options for `fuser.py` to help reduce storage, for example. Run `python3 fuser.py --help` to see them.
-
-## Todo
-- [ ] Desktop Dockerfile for ROS2 for faster fusing. (Currently only works on Jetson)
-- [ ] May 2023: ROS2 Iron release with MCAP as default. Removes need for customized Dockerfile.
