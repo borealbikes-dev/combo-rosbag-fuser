@@ -13,9 +13,15 @@ git clone https://github.com/borealbikes-dev/combo-rosbag-fuser.git
 
 Install [Docker](https://docs.docker.com/engine/install/) for your system.
 
-Move/copy the ZIP file obtained from the Boreal Web Interface into `input` directory.
+Run the main script to download the latest docker image and to create the `input` and `output` directories.
 
-Then run the script:
+```
+./run_fuser.sh
+```
+
+Move/copy the ZIP file obtained from the Boreal Web Interface into the `input` directory.
+
+Then run the script again:
 
 ```
 ./run_fuser.sh
