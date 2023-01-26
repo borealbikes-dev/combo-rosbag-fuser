@@ -1,7 +1,7 @@
 # Fuse Downloaded Combo Bags into one Rosbag
 
-`DLR Holoscene` and `DLR SDP` record data from sensors into a ZIP file.
-The scripts in this repository converts it into a single rosbag for further analysis and visualization.
+`DLR Holoscene` and `DLR SDP` platforms record sensor data into a ZIP file.
+Use this repository to convert it into a single rosbag for further analysis and visualization.
 
 ## Quickstart
 
