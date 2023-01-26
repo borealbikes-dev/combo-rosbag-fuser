@@ -3,6 +3,8 @@
 `DLR Holoscene` and `DLR SDP` platforms record sensor data into a ZIP file.
 Use this repository to convert it into a single rosbag for further analysis and visualization.
 
+Tested on Ubuntu 20.04 and macOS Monterey (note: slow performance on M1 due to architecture mismatch)
+
 ## Quickstart
 
 Clone this repository:
