@@ -1,41 +1,38 @@
-# Post-facto Video-Rosbag Fusion
+# Fuse Downloaded Combo Bags into one Rosbag
 
-**Problem**: ROS2 saves camera frames individually as still images when recording to a rosbag, which is very inefficient in both storage and processing.
+`DLR Holoscene` and `DLR SDP` record data from sensors into a ZIP file.
+The scripts in this repository converts it into a single rosbag for further analysis and visualization.
 
-**Solution**: Record camera frames as video file using NVIDIA Jetson's built-in hardware acceleration outside ROS. Record other information as usual using ROS. After the recording is finished, create a new rosbag by merging the videos and initial rosbag.
+## Quickstart
 
-## Tutorial
+Install [Docker] for your system.
 
-### Prerequisites
+Move/copy the ZIP file obtained from the Boreal Web Interface into `input` directory.
 
-+ NVIDIA Jetson Nano / Xavier NX (tested) / Xavier AGX with internet connection.
-+ V4l2-compatible USB camera or [Raspberry Pi V2 Camera](https://www.raspberrypi.com/products/camera-module-v2/)
-+ Strongly recommended: [Run the Jetson from an NVME drive](https://jetsonhacks.com/2020/05/29/jetson-xavier-nx-run-from-ssd/)
-
-Install Docker from [official instructions](https://docs.docker.com/engine/install/ubuntu/)
-
-### Record ROS topics and video outside ROS 
-
-Confirm camera connection. If one camera is connected, it should show up as: `/dev/video0`.
-
-Start one or more ROS2 nodes that publish some data. 
-
-In different terminal window start recording the video outside ROS:
+Then run the script:
 
 ```
-cd camera
-./csi_recorder_autosplit.sh # or ./usb_recorder_autosplit.sh if using USB camera
+./run_fuser.sh
 ```
 
-In a third terminal window, start rosbag recording from within a Docker container:
+The script will write an `.mcap` rosbag to the `output` directory.
+By default, the name will be the same as the zip file.
+Please see the references and example below for more options.
 
+## Anatomy of combo_bag
+
+An unzipped combo_bag looks something like this:
 ```
-./run_rosbag.sh
+combo_bag_2023-01-25_17-03-15/  # date format: YYYY-MM-DD_HH-MM-SS
+├── camera
+│   └── usb2 # a directory for each camera source
+│       ├── usb-1674662595562-ms-000-minutes.mp4  # filename contains start of video for this camera in milliseconds (since linux epoch)
+│       └── usb-1674662595562-ms-001-minutes.mp4  # files are split by 1 minute when recording 
+└── rosbag
+    ├── metadata.yaml
+    ├── rosbag_0.mcap # rosbag for first minute
+    └── rosbag_1.mcap # rosbag for second minute 
 ```
-
-Both the camera and rosbag will save to `output/` directory.
-
-After a minute or so, press CTRL+C for both the camera and rosbag recording.
 
 ### Post-facto Fusion
 
