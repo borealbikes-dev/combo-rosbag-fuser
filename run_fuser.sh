@@ -1,3 +1,5 @@
+mkdir -p output
+mkdir -p input
 sudo docker run \
 	--rm \
 	-v ${PWD}:/workspace \

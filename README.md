@@ -5,6 +5,12 @@ Use this repository to convert it into a single rosbag for further analysis and 
 
 ## Quickstart
 
+Clone this repository:
+
+```
+git clone https://github.com/borealbikes-dev/combo-rosbag-fuser.git
+```
+
 Install [Docker](https://docs.docker.com/engine/install/) for your system.
 
 Move/copy the ZIP file obtained from the Boreal Web Interface into `input` directory.
