@@ -13,7 +13,13 @@ Clone this repository:
 git clone https://github.com/borealbikes-dev/combo-rosbag-fuser.git
 ```
 
-Install [Docker](https://docs.docker.com/engine/install/) for your system.
+Install [Docker](https://docs.docker.com/engine/install/) for your system. Once installed, confirm installation by:
+
+```
+docker -v
+```
+
+In case `docker` requires you to run it with `sudo`, run the below scripts with `sudo` as well.
 
 Run the main script to download the latest docker image and to create the `input` and `output` directories.
 
