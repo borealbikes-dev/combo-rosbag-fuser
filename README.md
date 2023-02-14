@@ -19,6 +19,8 @@ git clone https://github.com/borealbikes-dev/combo-rosbag-fuser.git
 docker -v
 ```
 
+On a Mac, you may need to run the Docker application (so that it shows up on the top bar) as well.
+
 In case `docker` requires you to run it with `sudo`, run the below scripts with `sudo` as well.
 
 3. Run the main script to download the latest docker image and to create the `input` and `output` directories.
