@@ -7,13 +7,13 @@ Tested on Ubuntu 20.04 and macOS Monterey (note: slow performance on M1 due to a
 
 ## Quickstart
 
-Clone this repository:
+1. Clone this repository:
 
 ```
 git clone https://github.com/borealbikes-dev/combo-rosbag-fuser.git
 ```
 
-Install [Docker](https://docs.docker.com/engine/install/) for your system. Once installed, confirm installation by:
+2. Install [Docker](https://docs.docker.com/engine/install/) for your system. Once installed, confirm installation by:
 
 ```
 docker -v
@@ -21,23 +21,23 @@ docker -v
 
 In case `docker` requires you to run it with `sudo`, run the below scripts with `sudo` as well.
 
-Run the main script to download the latest docker image and to create the `input` and `output` directories.
+3. Run the main script to download the latest docker image and to create the `input` and `output` directories.
 
 ```
 ./run_fuser.sh
 ```
 
-Move/copy the ZIP file obtained from the Boreal Web Interface into the `input` directory.
+4. Move/copy the ZIP file obtained from the Boreal Web Interface into the `input` directory.
 
-Then run the script again:
+5. Then run the script again:
 
 ```
 ./run_fuser.sh
 ```
 
-See `output` directory for a new `.mcap` rosbag.
+6. See `output` directory for a new `.mcap` rosbag.
 
-Use [Foxglove](https://foxglove.dev/) to view its contents.
+7. Use [Foxglove](https://foxglove.dev/) to view its contents.
 
 ## Anatomy of combo_bag
 
